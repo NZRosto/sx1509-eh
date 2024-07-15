@@ -1,0 +1,26 @@
+[package]
+name = "sx1509-eh"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "An embedded-hal focused driver for the SX1509 GPIO expander"
+homepage = "https://github.com/NZRosto/sx1509-eh"
+repository = "https://github.com/NZRosto/sx1509-eh"
+readme = "README.md"
+keywords = ["sx1509", "embedded", "gpio", "expander", "embedded-hal"]
+categories = ["embedded", "no-std", "no-std::no-alloc", "hardware-support"]
+
+
+[lints]
+clippy.pedantic = "warn"
+
+
+[dependencies]
+embedded-hal = "1"
+portable-atomic = { version = "1", default-features = false, features = [
+    "require-cas",
+] }
+spin = { version = "0.9", default-features = false, features = [
+    "spin_mutex",
+    "portable_atomic",
+] }
