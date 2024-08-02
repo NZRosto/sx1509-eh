@@ -70,11 +70,11 @@ where
     }
 
     pub(crate) fn set_output<const PIN: u8>(&self) -> Result<(), Error<E>> {
-        self.set_bit::<PIN>(BankAgnosticRegister::Dir)
+        self.unset_bit::<PIN>(BankAgnosticRegister::Dir)
     }
 
     pub(crate) fn set_input<const PIN: u8>(&self) -> Result<(), Error<E>> {
-        self.unset_bit::<PIN>(BankAgnosticRegister::Dir)
+        self.set_bit::<PIN>(BankAgnosticRegister::Dir)
     }
 
     pub(crate) fn set_data<const PIN: u8>(&self, value: bool) -> Result<(), Error<E>> {
